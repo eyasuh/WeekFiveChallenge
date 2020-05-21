@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,9 +9,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title></title>
+    <title>Cat</title>
 </head>
 <body>
+
+
+    <form action="#" th:action="@{/catPage}" th:object="${customer}" method="post" style="background-color: aqua;">
+
+        What is your name?
+        <input type="text" th:field="*{name}">
+        <span th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">
+            </span><br>
+        What is your phone number?
+        <input type="text" th:field="*{phone}">
+        <span th:if="${#fields.hasErrors('phone')}"
+              th:errors="*{phone}">
+        </span><br>
+        What is your dog breed?
+        <input type="text" th:field="*{petInfo}">
+        <span th:if="${#fields.hasErrors('petInfo')}"
+              th:errors="*{petInfo}">
+            </span><br>
+        <input type ="submit" value ="Sbumit">
+
+    </form>
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

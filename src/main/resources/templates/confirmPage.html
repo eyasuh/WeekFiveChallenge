@@ -11,7 +11,7 @@
 
     <style>
         html {
-            background: url(https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260) no-repeat center center fixed;
+            background: url(https://images.pexels.com/photos/193821/pexels-photo-193821.jpeg?cs=srgb&dl=person-doing-thumbs-up-193821.jpg&fm=jpg) no-repeat center center fixed;
             background-size: cover;
             height: 100%;
             overflow: hidden;
@@ -54,10 +54,23 @@
     <p th:inline="text">
         Name : [[${customer.name}]]<br>
         Phone : [[${customer.phone}]]<br>
-        Pet information : [[${customer.petInfo}]]<br>
+        Pet breed : [[${customer.petInfo}]]<br>
     </p>
 
-    <form action="#" th:action="@{/formPage}" method="post">
+    <table>
+        <tr th:each="customer: ${customer.customerArray}">
+
+            <td th:text="${customer.name}"/>
+
+            <td th:text="${customer.phone}"/>
+
+            <td th:text="${customer.petInfo}"/>
+
+        </tr>
+    </table>
+
+    <!--ask to add-->
+    <form action="#" th:action="@{/formPage}" method="get">
 
         <div>Would you like to enter again?
         <input type="radio" id="yes" name="answer" value=true>

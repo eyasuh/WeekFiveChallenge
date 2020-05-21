@@ -53,26 +53,19 @@
 </div>
 
 <!--Thymeleaf-->
-    <form action="#" th:action="@{/formPage}" th:object="${customer}" method="post" style="background-color: aqua;">
 
-         What is your name?
-        <input type="text" th:field="*{name}">
-        <span th:if="${#fields.hasErrors('name')}"
-              th:errors="*{name}">
-        </span><br>
-        What is your phone number?
-        <input type="text" th:field="*{phone}">
-        <span th:if="${#fields.hasErrors('phone')}"
-              th:errors="*{phone}">
-        </span><br>
-        Do you have a dog or cat?
-        <input type="text" th:field="*{petInfo}">
-        <span th:if="${#fields.hasErrors('petInfo')}"
-              th:errors="*{petInfo}">
-        </span><br>
-        <input type ="submit" value ="Sbumit">
+    <form action="formPage" th:action="@{/choice}" method="post">
 
+        <div>Do you have a cat or a dog?
+        <input type="radio" id="yes" name="answer" value=true>
+        <label for="yes">Cat</label>
+        <input type="radio" id="no" name="answer" value=false>
+        <label for="no">Dog</label>
+        </div>
+        <input type="submit" value="Submit">
     </form>
+
+
 
 
 
